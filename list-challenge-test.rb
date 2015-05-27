@@ -2,17 +2,14 @@ require 'minitest/autorun'
 require 'pry'
 
 class ListAnalyzer
-  def initialize group
-    @group = group
-    @vowels = ["a", "e", "i", "o", "u"]
-  end
-
-  def number_of_words_starting_with_a_vowel
+  def number_of_words_starting_with_a_vowel group
     words_starting_with_vowel = 0
-    if group.each.start_with?(@vowels)
-      words_starting_with_vowel += 1
-    end
-    words_starting_with_vowel
+      group.each do |word|
+        if word.start_with?("a", "e", "i", "o", "u")
+          words_starting_with_vowel += 1
+        end
+      end
+    return words_starting_with_vowel
   end
 
   def all_words_start_with_vowels?

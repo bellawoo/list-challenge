@@ -12,10 +12,8 @@ class ListAnalyzer
     return words_starting_with_vowel
   end
 
-  def all_words_start_with_vowels?
-    if words_starting_with_vowel = @group.length
-      return true
-    end
+  def all_words_start_with_vowels? group
+    number_of_words_starting_with_a_vowel(group) == group.length
   end
 end
 

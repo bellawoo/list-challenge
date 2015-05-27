@@ -7,32 +7,34 @@ class ListAnalyzer
   end
 
   def number_of_words_starting_with_a_vowel group
-    words_starting_with_vowel = 0
-      group.each do |word|
-        if starts_with_vowel?(word)
-          words_starting_with_vowel += 1
-        end
-      end
-    return words_starting_with_vowel
+    # words_starting_with_vowel = 0
+    #   group.each do |word|
+    #     if starts_with_vowel? word
+    #       words_starting_with_vowel += 1
+    #     end
+    #   end
+    # return words_starting_with_vowel
+    group.count do |word|
+      starts_with_vowel? word
+    end
   end
 
   def all_words_start_with_vowels? group
-    number_of_words_starting_with_a_vowel(group) == group.length
+    # number_of_words_starting_with_a_vowel(group) == group.length
+    group.all? do |word|
+      starts_with_vowel? word
+    end
   end
 
   def some_word_starts_with_a_vowel? group
     # number_of_words_starting_with_a_vowel > 0
-    group.each do |word|
-      if starts_with_vowel?(word)
-        return true
+    group.any? do |word|
+      starts_with_vowel? word
       end
-    end
-    return false
   end
 
-  def number_of_vowels_in_all_words group
-    
-  end
+  # def number_of_vowels_in_all_words group
+  # end
 end
 
 
